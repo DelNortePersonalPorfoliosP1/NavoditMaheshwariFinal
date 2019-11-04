@@ -1,14 +1,16 @@
 //
 //  AppDelegate.h
-//  UI.portfolio
+//  Calculator
 //
-//  Created by Maheshwari, Navodit on 11/4/19.
-//  Copyright © 2019 Maheshwari, Navodit. All rights reserved.
+//  Created by Sutherland, Zachary on 10/15/19.
+//  Copyright © 2019 Sutherland, Zachary. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
 
 
 @end
