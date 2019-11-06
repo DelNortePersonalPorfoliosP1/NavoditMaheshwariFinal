@@ -2,10 +2,11 @@
 //  ViewController.m
 //  Calculator
 //
-//  Created by Sutherland, Zachary on 10/15/19.
-//  Copyright © 2019 Sutherland, Zachary. All rights reserved.
+//  Created by John Mortensen on 10/10/19.
+//  Copyright © 2019 JM. All rights reserved.
 //
 
+#include "calc.h"
 #import "ViewController.h"
 
 //@interface ViewController ()
@@ -26,56 +27,33 @@
     [self clearCalcAreaLabel];
 }
 
+
 /* Section 1: Methods for managing and performing calculation, C style used where practical */
 -(void)calculateAnswer  // method to perform calculation
 {
+//    int a1 = 0; //to determine which number is a squared funtion
     // arg2 = [calcAreaNumber doubleValue];  // Obj-C Class method to convert NSSTRING to double
-arg2 = calcAreaNumber.doubleValue;  // Alternate Java like syntax to convert NSSTRING to double
-    switch(mathOp)
-    {
-        case PLUS:
-            calcAnswer = arg1 + arg2;
-            break;
-        case MINUS:
-            calcAnswer = arg1 - arg2;
-            break;
-        case DIVIDE:
-            calcAnswer = arg1 / arg2;
-            break;
-        case MULTIPLY:
-            calcAnswer = arg1 * arg2;
-            break;
-        case MODULO:
-            calcAnswer = (double)((int)arg1 % (int)arg2);
-            break;
-        case SQRT:
-            calcAnswer = pow( arg1, .5);
-            break;
-        case EXPONENT:
-            calcAnswer = pow( arg1,arg2);
-            break;
-        case SQUARE:
-            calcAnswer = pow( arg1,2);
-        case -1:
-            calcAnswer = arg1;
-    }
+    arg2 = calcAreaNumber.doubleValue;  // Alternate Java like syntax to convert NSSTRING to double
+    
+    calcAnswer = calc(arg1, mathOp, arg2);
+    
 }
 
 -(void)saveValueOfArg1 { // method to store 1st value in calculation (arg1), C style
     // arg1 = [calcAreaNumber doubleValue];  // Obj-C Class method to convert NSSTRING to double
     arg1 = calcAreaNumber.doubleValue;  // Alternate Java like syntax to convert NSSTRING to double
 }
-
 -(void)saveValueofAnswer {  // method to save value of answer after calc to arg1
     mathOp = -1;          // operator is unassigned after calc
     arg1 = calcAnswer;      // arg1 is current display value
     arg2 = 0.0;             // arg2 is now unassigned
+
 }
 
 -(void)saveValueOfOperator:(int)opNumber {  // method to retain value of operator
     mathOp = opNumber;
 }
-
+    
 -(void)clearCalculator {                    // method to clear values of calculator
     mathOp = -1;
     arg1 = 0.0;
@@ -111,8 +89,9 @@ arg2 = calcAreaNumber.doubleValue;  // Alternate Java like syntax to convert NSS
 -(IBAction)equalButton:(id)sender {  // Interface Builder action for equal (calculation)
     // perform calculation
     [self calculateAnswer];
+    
     // set and display result
-    [self setCalcAreaNumber:[NSString stringWithFormat:@"%f", calcAnswer]];  // float (double) to string
+    [self setCalcAreaNumber:[NSString stringWithFormat:@"%.2f", calcAnswer]];  // float (double) to string
     [self setTextCalcAreaLabel];
     
     // set values to support continued calculations, but wipe if you type a number
@@ -131,98 +110,112 @@ arg2 = calcAreaNumber.doubleValue;  // Alternate Java like syntax to convert NSS
     [self saveValueOfArg1];
     [self clearCalcAreaLabel];
 }
--(IBAction)minusButton:(id)sender {  // Interface Builder action for plus (+)
-    [self saveValueOfOperator:MINUS];
-    [self saveValueOfArg1];
-    [self clearCalcAreaLabel];
-}
--(IBAction)divideButton:(id)sender {  // Interface Builder action for plus (+)
-    [self saveValueOfOperator:DIVIDE];
-    [self saveValueOfArg1];
-    [self clearCalcAreaLabel];
-}
--(IBAction)multiplyButton:(id)sender {  // Interface Builder action for plus (+)
+
+-(IBAction)multiplyButton:(id)sender {  // Interface Builder action for multiply (*)
     [self saveValueOfOperator:MULTIPLY];
     [self saveValueOfArg1];
     [self clearCalcAreaLabel];
 }
--(IBAction)moduloButton:(id)sender {  // Interface Builder action for plus (+)
-    [self saveValueOfOperator:MODULO];
+
+-(IBAction)minusButton:(id)sender {  // Interface Builder action for minus (-)
+    [self saveValueOfOperator:MINUS];
     [self saveValueOfArg1];
     [self clearCalcAreaLabel];
 }
--(IBAction)sqrtButton:(id)sender {  // Interface Builder action for plus (+)
-    [self saveValueOfOperator:SQRT];
+
+-(IBAction)minusDivide:(id)sender {  // Interface Builder action for divide (/)
+    [self saveValueOfOperator:DIVIDE];
     [self saveValueOfArg1];
     [self clearCalcAreaLabel];
+}
+
+-(IBAction)squareButton:(id)sender {  // Interface Builder action for square (^2)
+    [self saveValueOfOperator:SQUARE];
+    [self saveValueOfArg1];
+//    [self clearCalcAreaLabel];
+    
+    // perform calculation
     [self calculateAnswer];
-    [self setCalcAreaNumber:[NSString stringWithFormat:@"%f", calcAnswer]];  // float (double) to string
+    
+    // set and display result
+    [self setCalcAreaNumber:[NSString stringWithFormat:@"%.2f", calcAnswer]];  // float (double) to string
     [self setTextCalcAreaLabel];
     
     // set values to support continued calculations, but wipe if you type a number
     [self saveValueofAnswer];                   // answer -> arg1
-    [self setInitialCalcAreaInputState:true];
-}
--(IBAction)exponentButton:(id)sender {  // Interface Builder action for plus (+)
-    [self saveValueOfOperator:EXPONENT];
-    [self saveValueOfArg1];
-    [self clearCalcAreaLabel];
+    [self setInitialCalcAreaInputState:true];   // number key typing will wipe value
+
 }
 
+
+// Interface Builder actions  for numbers and decimal
 -(IBAction)press9Button:(id)sender {  // Interface Builder action for (9)
     NSString *keyNumber = @"9";
     [self concatCalcAreaLabel:keyNumber];
 }
--(IBAction)press8Button:(id)sender {  // Interface Builder action for (9)
+
+// Interface Builder actions  for numbers and decimal
+-(IBAction)press8Button:(id)sender {  // Interface Builder action for (8)
     NSString *keyNumber = @"8";
     [self concatCalcAreaLabel:keyNumber];
 }
--(IBAction)press7Button:(id)sender {  // Interface Builder action for (9)
+
+// Interface Builder actions  for numbers and decimal
+-(IBAction)press7Button:(id)sender {  // Interface Builder action for (7)
     NSString *keyNumber = @"7";
     [self concatCalcAreaLabel:keyNumber];
 }
--(IBAction)press6Button:(id)sender {  // Interface Builder action for (9)
+
+// Interface Builder actions  for numbers and decimal
+-(IBAction)press6Button:(id)sender {  // Interface Builder action for (6)
     NSString *keyNumber = @"6";
     [self concatCalcAreaLabel:keyNumber];
 }
--(IBAction)press5Button:(id)sender {  // Interface Builder action for (9)
+
+// Interface Builder actions  for numbers and decimal
+-(IBAction)press5Button:(id)sender {  // Interface Builder action for (5)
     NSString *keyNumber = @"5";
     [self concatCalcAreaLabel:keyNumber];
 }
--(IBAction)press4Button:(id)sender {  // Interface Builder action for (9)
+
+// Interface Builder actions  for numbers and decimal
+-(IBAction)press4Button:(id)sender {  // Interface Builder action for (4)
     NSString *keyNumber = @"4";
     [self concatCalcAreaLabel:keyNumber];
 }
--(IBAction)press3Button:(id)sender {  // Interface Builder action for (9)
+
+// Interface Builder actions  for numbers and decimal
+-(IBAction)press3Button:(id)sender {  // Interface Builder action for (3)
     NSString *keyNumber = @"3";
     [self concatCalcAreaLabel:keyNumber];
 }
--(IBAction)press2Button:(id)sender {  // Interface Builder action for (9)
+
+// Interface Builder actions  for numbers and decimal
+-(IBAction)press2Button:(id)sender {  // Interface Builder action for (2)
     NSString *keyNumber = @"2";
     [self concatCalcAreaLabel:keyNumber];
 }
--(IBAction)press1Button:(id)sender {  // Interface Builder action for (9)
+
+// Interface Builder actions  for numbers and decimal
+-(IBAction)press1Button:(id)sender {  // Interface Builder action for (1)
     NSString *keyNumber = @"1";
     [self concatCalcAreaLabel:keyNumber];
 }
--(IBAction)press0Button:(id)sender {  // Interface Builder action for (9)
+
+// Interface Builder actions  for numbers and decimal
+-(IBAction)press0Button:(id)sender {  // Interface Builder action for (0)
     NSString *keyNumber = @"0";
     [self concatCalcAreaLabel:keyNumber];
 }
--(IBAction)pressdotButton:(id)sender {  // Interface Builder action for (9)
+
+// Interface Builder actions  for numbers and decimal
+-(IBAction)pressDotButton:(id)sender {  // Interface Builder action for (.)
     NSString *keyNumber = @".";
     [self concatCalcAreaLabel:keyNumber];
 }
--(IBAction)pressparenthButton:(id)sender {  // Interface Builder action for (9)
-    NSString *keyNumber = @"(";
-    [self concatCalcAreaLabel:keyNumber];
-}
--(IBAction)pressesisButton:(id)sender {  // Interface Builder action for (9)
-    NSString *keyNumber = @")";
-    [self concatCalcAreaLabel:keyNumber];
-}
+
+
 /* End Section 2 */
 
 
 @end  // End of Implementation
-

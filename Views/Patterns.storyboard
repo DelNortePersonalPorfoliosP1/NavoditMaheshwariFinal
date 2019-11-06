@@ -114,7 +114,6 @@
                                         <attributes>
                                             <color key="NSColor" red="0.12524373488336152" green="0.7643701424870466" blue="0.07113566717834513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="41" name="Zapfino"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
