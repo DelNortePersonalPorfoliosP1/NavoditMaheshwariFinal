@@ -16,6 +16,7 @@
 #define DIVIDE 3
 #define MODULO 4
 #define SQUARE 5
+#define TRI 6
 
 
 #include <stdio.h>

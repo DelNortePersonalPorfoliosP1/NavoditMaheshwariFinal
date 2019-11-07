@@ -102,6 +102,7 @@
 -(IBAction)clearButton:(id)sender { // Interface Builder action for clear (clean calculator)
     [self clearCalculator];          // clear operator
     [self clearCalcAreaLabel];
+    hold=0;
 }
 
 // Interface Builder for operators buttons
@@ -146,7 +147,24 @@
     [self setInitialCalcAreaInputState:true];   // number key typing will wipe value
 
 }
+int hold = 0;
+-(IBAction)tri:(id)sender {
+    hold++;
+    if(hold>1){
+        [self calculateAnswer];
+        [self setCalcAreaNumber:[NSString stringWithFormat:@"%.2f", calcAnswer]];
+        [self setTextCalcAreaLabel];
+        [self saveValueofAnswer];
+        [self setInitialCalcAreaInputState:true];
+        hold=0;
+    }
+    else{
+    [self saveValueOfOperator:TRI];
+    [self saveValueOfArg1];
+    [self clearCalcAreaLabel];
+    }
 
+}
 
 // Interface Builder actions  for numbers and decimal
 -(IBAction)press9Button:(id)sender {  // Interface Builder action for (9)
