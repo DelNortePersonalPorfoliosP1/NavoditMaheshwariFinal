@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #include <strings.h>
-#include "control.h"
+#include "Control.h"
 
 // These strings are used for displaying enum descriptions
 // Note:  there is an inorder dependency

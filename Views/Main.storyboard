@@ -37,14 +37,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgV-28-U1p">
-                                <rect key="frame" x="139" y="388" width="241" height="39"/>
+                                <rect key="frame" x="139" y="384" width="241" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.18868972079999999" green="0.18868972079999999" blue="0.18868972079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                <state key="normal" title="Rectangle">
+                                <state key="normal" title="Search">
                                     <color key="titleColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Iz3-2T-4Sl" kind="show" id="tuc-lZ-6hV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMq-6x-4pA">
                                 <rect key="frame" x="139" y="610" width="241" height="48"/>
@@ -97,10 +100,20 @@
             </objects>
             <point key="canvasLocation" x="1674" y="-10"/>
         </scene>
-        <!--Pythagorean-->
+        <!--Search-->
+        <scene sceneID="396-zr-b4t">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="Iz3-2T-4Sl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="LRy-hV-0mm"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cQj-hg-fcj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1629" y="50"/>
+        </scene>
+        <!--Pythagoreany-->
         <scene sceneID="5eb-KC-RGX">
             <objects>
-                <viewControllerPlaceholder storyboardName="Pythagorean" id="O0z-ZE-UUb" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Pythagoreany" id="O0z-ZE-UUb" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="FCH-Q7-uLE"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ym7-js-xWa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -116,22 +129,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1j-y6-d0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1666" y="129"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="Oe8-5c-vcU">
-            <objects>
-                <viewControllerPlaceholder id="9nI-5E-CaC" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q9x-YD-Qh0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1615" y="64"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="zDN-um-sYX">
-            <objects>
-                <viewControllerPlaceholder id="qdL-2r-jgZ" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vCv-Ag-vaO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1656" y="240"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dEm-am-QYF">

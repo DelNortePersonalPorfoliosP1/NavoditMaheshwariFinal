@@ -6,8 +6,8 @@
 //  Copyright © 2019 Maheshwari,Navodit. All rights reserved.
 //
 
-#ifndef calc_h
-#define calc_h
+#ifndef CalcController_h
+#define CalcController_h
 
 
 #define PLUS 0

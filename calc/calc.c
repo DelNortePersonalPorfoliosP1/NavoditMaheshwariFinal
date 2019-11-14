@@ -6,7 +6,7 @@
 //  Copyright © 2019 Maheshwari,Navodit. All rights reserved.
 //
 
-#include "calc.h"
+#include "CalcController.h"
 #include <math.h>
 double calc(double arg1 ,int mathOp,double arg2){
      
