@@ -8,6 +8,7 @@
 //
 
 
+
 #include "Control.h"
 #import "FileIOController.h"
 
@@ -25,7 +26,7 @@
 -(void)loadTableData  // method to perform calculation
 {
     // static file name
-    char *fn="/Users/1850585/Documents/NavoditMaheshwariFinal/Contro/fileparse.c";
+    char *fn="Users/1850585/Documents/p1f-AndrewPhilupJoseph/Contol/fileparse.c";
     CANDIDATE_FUNCS *functions = fileParse(fn);
     
     // Convert struct to array

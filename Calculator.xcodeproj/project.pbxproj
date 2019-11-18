@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42BB78AC2381FECD00E93D4E /* fileio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42BB78AB2381FECD00E93D4E /* fileio.storyboard */; };
 		A544CC872369E15500799EEE /* Patterns.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A544CC862369E15500799EEE /* Patterns.storyboard */; };
 		A5CAD7D22361FD7E00670B11 /* LabMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CAD7D12361FD7E00670B11 /* LabMenu.m */; };
 		A5D9BAF023562ACB005B3D37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D9BAEF23562ACB005B3D37 /* AppDelegate.m */; };
@@ -17,7 +18,6 @@
 		A5E58829236353FD00D53A24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5E58828236353FD00D53A24 /* Main.storyboard */; };
 		C0DC1AB3237DCD1F009BCFE6 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0DC1AB2237DCD1F009BCFE6 /* Search.storyboard */; };
 		C0DC1AB7237DD0CC009BCFE6 /* Pythagoreany.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0DC1AB6237DD0CC009BCFE6 /* Pythagoreany.storyboard */; };
-		F5046DE8237C6C3000DEA22F /* FileIO.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5046DE7237C6C3000DEA22F /* FileIO.storyboard */; };
 		F54D3AA52373372900150579 /* calc.c in Sources */ = {isa = PBXBuildFile; fileRef = F54D3AA42373372900150579 /* calc.c */; };
 		F586C76B237DB8080042C302 /* FileIOController.m in Sources */ = {isa = PBXBuildFile; fileRef = F586C76A237DB8080042C302 /* FileIOController.m */; };
 		F586C76E237DB8A20042C302 /* fileparse.c in Sources */ = {isa = PBXBuildFile; fileRef = F586C76D237DB8A20042C302 /* fileparse.c */; };
@@ -26,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42BB78AB2381FECD00E93D4E /* fileio.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = fileio.storyboard; sourceTree = "<group>"; };
 		A544CC862369E15500799EEE /* Patterns.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Patterns.storyboard; sourceTree = "<group>"; };
 		A5CAD7D12361FD7E00670B11 /* LabMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabMenu.m; sourceTree = "<group>"; };
 		A5D9BAEB23562ACB005B3D37 /* UI.Labs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.Labs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,7 +42,6 @@
 		C0DC1AB1237DCAE7009BCFE6 /* FileIOController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileIOController.h; sourceTree = "<group>"; };
 		C0DC1AB2237DCD1F009BCFE6 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		C0DC1AB6237DD0CC009BCFE6 /* Pythagoreany.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pythagoreany.storyboard; sourceTree = "<group>"; };
-		F5046DE7237C6C3000DEA22F /* FileIO.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FileIO.storyboard; path = "../../../Downloads/p1f-jm1021-master/Uiportfolio/Views/FileIO.storyboard"; sourceTree = "<group>"; };
 		F54D3AA32373372900150579 /* CalcController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalcController.h; sourceTree = "<group>"; };
 		F54D3AA42373372900150579 /* calc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = calc.c; sourceTree = "<group>"; };
 		F586C76A237DB8080042C302 /* FileIOController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileIOController.m; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				A544CC862369E15500799EEE /* Patterns.storyboard */,
-				F5046DE7237C6C3000DEA22F /* FileIO.storyboard */,
+				42BB78AB2381FECD00E93D4E /* fileio.storyboard */,
 				A5D9BAF423562ACB005B3D37 /* Calculator.storyboard */,
 				A5E58828236353FD00D53A24 /* Main.storyboard */,
 				C0DC1AB2237DCD1F009BCFE6 /* Search.storyboard */,
@@ -206,8 +206,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5046DE8237C6C3000DEA22F /* FileIO.storyboard in Resources */,
 				A5D9BAFB23562ACD005B3D37 /* LaunchScreen.storyboard in Resources */,
+				42BB78AC2381FECD00E93D4E /* fileio.storyboard in Resources */,
 				A5E58829236353FD00D53A24 /* Main.storyboard in Resources */,
 				A5D9BAF823562ACD005B3D37 /* Assets.xcassets in Resources */,
 				A544CC872369E15500799EEE /* Patterns.storyboard in Resources */,
